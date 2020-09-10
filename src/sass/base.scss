@@ -1,0 +1,136 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  @include font-normal;
+  font-size: 18px;
+
+}
+
+
+a {
+  color: $color-link;
+}
+
+
+.container {
+  padding: 0 15px;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+
+}
+
+.container-2 {
+  width: 100%;
+  max-width: 1653px;
+  margin: 0 auto;
+}
+
+
+.btn {
+  text-transform: uppercase;
+  display: inline-block;
+  text-decoration: none;
+  @include font-medium;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &__dark {
+    color: $color-fonts;
+    padding: 20px 110px;
+    border: 3px solid $border-color;
+    position: relative;
+    @media (max-width: 480px) {
+      padding: 20px 0;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    &::after {
+      content: '+';
+      font-size: 30px;
+      position: absolute;
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $color-fontslight;
+      height: 100%;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      background: $border-color;
+      transition: $transition;
+
+    }
+    &:hover::after {
+      width: 100%;
+      opacity: 100%;
+
+    }
+    &:focus::after {
+      width: 100%;
+      opacity: 100%;
+
+    }
+
+
+  }
+
+  &__light {
+    width: 290px;
+    height: 60px;
+    background: none;
+    border: 3px solid #ffffff;
+    color: #ffffff;
+    margin: 0 auto;
+    position: relative;
+    @media (max-width: 480px) {
+      width: 100%;
+    }
+
+    &::after {
+      @include fontawesome;
+      content: '\f1d8';
+
+      font-size: 30px;
+      position: absolute;
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $color-fonts;
+      height: 100%;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      background: $color-fontslight;
+      transition: $transition;
+
+    }
+    &:hover::after {
+      width: 100%;
+      opacity: 100%;
+
+    }
+    &:focus::after {
+      width: 100%;
+      opacity: 100%;
+    }
+
+  }
+
+}
